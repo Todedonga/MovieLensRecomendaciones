@@ -283,7 +283,7 @@ if (!$recommendations) {
     <?php endif; ?>
 
     <div class="actions-section">
-        <a href="recomendar.php" class="btn-back">
+        <a href="index.php" class="btn-back">
             Calificar más películas
         </a>
     </div>
