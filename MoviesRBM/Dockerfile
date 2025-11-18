@@ -3,14 +3,15 @@ FROM php:8.2-apache
 # Instalar extensiones de PHP
 RUN docker-php-ext-install mysqli
 
-# 1. Actualizar, instalar Python y pip
-# 2. **Añadir dependencias de compilación para paquetes como numpy/pandas/scikit-learn**
+# Instalar Python, pip y las dependencias de compilación/álgebra lineal
 RUN apt-get update && \
     apt-get install -y \
     python3 \
     python3-pip \
-    **build-essential** \
-    **python3-dev** \
+    build-essential \
+    python3-dev \
+    **libblas-dev** \
+    **liblapack-dev** \
     && rm -rf /var/lib/apt/lists/*
 
 # Crear alias para que "python" funcione como comando
