@@ -5,5 +5,6 @@ scipy
 ujson
 chardet
 utf8fix
-torch
-tensorflow
+
+#torch
+#tensorflow
