@@ -3,8 +3,15 @@ FROM php:8.2-apache
 # Instalar extensiones de PHP
 RUN docker-php-ext-install mysqli
 
-# Instalar Python y pip
-RUN apt-get update && apt-get install -y python3 python3-pip
+# 1. Actualizar, instalar Python y pip
+# 2. **Añadir dependencias de compilación para paquetes como numpy/pandas/scikit-learn**
+RUN apt-get update && \
+    apt-get install -y \
+    python3 \
+    python3-pip \
+    **build-essential** \
+    **python3-dev** \
+    && rm -rf /var/lib/apt/lists/*
 
 # Crear alias para que "python" funcione como comando
 RUN ln -s /usr/bin/python3 /usr/bin/python
